@@ -46,13 +46,16 @@ function generateHtml(url) {
 function scrapeJumiaPrice(html) {
   const $ = cheerio.load(html);
 
-  const productTitle = $('h1.title').text();
-  let productImage = $('.product-preview')
+  const productTitle = $('h1').text();
+  let productImage = $('#imgs')
     .find('img')
     .attr('data-src');
-  let currentPrice = $('.price-box')
-    .find('span:first-child.price')
+    let currentPrice = $('.-mtxs')
     .text();
+    // console.log({productTitle})
+    // console.log({productImage})
+    // console.log({currentPrice})
+
   currentPrice = currentPrice.replace(',', '');
   currentPrice = parseFloat(currentPrice.replace('KSh', ''));
 
